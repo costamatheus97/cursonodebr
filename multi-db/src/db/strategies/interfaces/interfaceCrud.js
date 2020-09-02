@@ -1,3 +1,9 @@
+class NotImplementedException extends Error {
+  constructor(){
+    super("Not implemented exception")
+  }
+}
+
 class ICrud {
   create(item){
     throw new NotImplementedException()
@@ -12,6 +18,10 @@ class ICrud {
   }
 
   delete(id){
+    throw new NotImplementedException()
+  }
+
+  isConnected(){
     throw new NotImplementedException()
   }
 }

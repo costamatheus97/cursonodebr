@@ -2,8 +2,8 @@
 
 docker run \
   --name postgres \
-  -e POSTGRES_USER=nome\
-  -e POSTGRES_PASSWORD=senha \
+  -e POSTGRES_USER=username \
+  -e POSTGRES_PASSWORD=password \
   -e POSTGRES_DB=heroes \
   -p 5432:5432 \
   -d \
@@ -25,7 +25,7 @@ docker run \
   --name mongodb \
   -p 27017:27017 \
   -e MONGO_INITDB_ROOT_USERNAME=admin \
-  -e MONGO_INITDB_ROOT_PASSWORD=senha \
+  -e MONGO_INITDB_ROOT_PASSWORD=password \
   -d \
   mongo:4
 
@@ -37,8 +37,8 @@ docker run \
   mongoclient/mongoclient
 
 docker exec -it mongodb \
-  mongo --host localhost -u admin -p senha --authenticationDatabase admin \
-  --eval "db.getSiblingDB('heroes').createUser({user: 'nome', pwd: 'senha', roles: [{role: 'readWrite', db: 'heroes'}]})"
+  mongo --host localhost -u admin -p password --authenticationDatabase admin \
+  --eval "db.getSiblingDB('heroes').createUser({user: 'username', pwd: 'password', roles: [{role: 'readWrite', db: 'heroes'}]})"
 
 
 
